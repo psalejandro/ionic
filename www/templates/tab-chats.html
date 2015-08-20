@@ -1,0 +1,19 @@
+<ion-view view-title="Chats">
+  <ion-content>
+  <ion-radio ng-click="getAllData('metric')">Celsius</ion-radio>
+  <ion-radio ng-click="getAllData('imperial')">Fahrenheits</ion-radio>
+  <ion-radio ng-click="getAllData('')">Kelvin</ion-radio>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.dt}}">
+        <img ng-src="http://openweathermap.org/img/w/{{chat.weather[0].icon}}.png">
+        <h2>{{chat.dt*1000 | date:fullDate}}</h2>
+        <p>{{chat.temp.min}}°/{{chat.temp.max}}°</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
